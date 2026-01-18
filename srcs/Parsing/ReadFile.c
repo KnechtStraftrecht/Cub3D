@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/18 22:00:56 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/18 22:45:08 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,27 @@ void	ReadTextures(char *MapPath, Textures *GameTextures)
 	tmp = get_next_line(fd);
 	while (tmp && !MapStart(tmp) && !TexturesFilled(GameTextures))
 	{
+		if (isConfig(tmp))
+			CopyConfig(tmp, GameTextures);
+		free(tmp);
+		tmp = get_next_line(fd);
+	}
+	if (!TexturesFilled)
+		E_TextureConfigM();
+}
 
+void	ReadMap(char *MapPath, Map *GameMap)
+{
+	char	*tmp;
+	int		fd;
+
+	fd = open(MapPath, O_RDONLY);
+	if (fd < 0)
+		E_MapCantOpen();
+	while (tmp && !MapStart(tmp))
+	{
+		free(tmp);
+		tmp = get_next_line(fd);
 	}
 }
 
