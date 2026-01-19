@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Parsing.h                                          :+:      :+:    :+:   */
+/*   TableAddBack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 20:21:16 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:12:34 by hkullert         ###   ########.fr       */
+/*   Created: 2026/01/19 18:30:38 by hkullert          #+#    #+#             */
+/*   Updated: 2026/01/19 18:38:02 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSING_H
-	#define PARSING_H
-
-#include "Map.h"
-#include "Textures.h"
-#include "ParsingErrors.h"
 #include "libft.h"
 
-void	InputFileParser(char *MapPath, Map *GameMap, Textures *GameTextures);
-int		MapStart(char *FileSnippet);
-int		TexturesFilled(Textures *Textures);
-int		isEmpty(char *str);
+int	TableAddBack(char ***table, char *str)
+{
+	char	**table_new;
+	int		Index;
 
-#endif
+	if (!table || !str)
+		return (-1);
+	table_new = malloc(sizeof(char *) * ft_tablen(table) + 2);
+	if (!table_new)
+		return (-1);
+	while (*table[Index])
+	{
+		table_new[Index] = *table[Index];
+		Index++;
+	}
+	table_new[Index++] = ft_strdup(str);
+	table_new[Index] = NULL;
+	free(*table);
+	*table = table_new;
+	return (0);
+}

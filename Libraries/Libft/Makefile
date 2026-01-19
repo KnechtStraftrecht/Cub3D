@@ -6,7 +6,7 @@
 #    By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 20:16:18 by pbrandes          #+#    #+#              #
-#    Updated: 2025/10/05 19:25:23 by hkullert         ###   ########.fr        #
+#    Updated: 2026/01/19 18:38:49 by hkullert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,8 @@ SRC = ft_itoa.c \
 	ft_strlen_till_c.c \
 	ft_tabjoin.c \
 	ft_tabdel.c \
-	ft_strrtrim.c
+	ft_strrtrim.c \
+	TableAddBack.c
 
 
 OBJ = $(SRC:.c=.o)

@@ -6,11 +6,11 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:21:26 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 19:15:32 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/19 20:13:03 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ErrorHeaders/ParsingErrors.h"
+#include "ParsingErrors.h"
 
 // Error for wrong file extension (not ".cub")
 void	E_FileExtension(void)

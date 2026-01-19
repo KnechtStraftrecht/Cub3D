@@ -6,7 +6,7 @@
 #    By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/18 18:55:23 by hkullert          #+#    #+#              #
-#    Updated: 2026/01/18 19:29:08 by hkullert         ###   ########.fr        #
+#    Updated: 2026/01/19 19:43:37 by hkullert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ CC			= cc
 
 CFLAGS		= -Wall -Werror -Wextra -g
 
-INCLUDES	= -I$(LIBFT_PATH) -I./srcs/Headers -I./srcs/ErrorHandling/ErrorHeaders
+INCLUDES	= -I$(LIBFT_PATH) \
+	-I./srcs/GeneralHeaders/Structs \
+	-I./srcs/GeneralHeaders/Cleanups \
+	-I./srcs/ErrorHandling/ErrorHeaders \
+	-I./srcs/Parsing \
+	-I./srcs/TestFunctions
 
 LIBFT_PATH	= ./Libraries/Libft
 

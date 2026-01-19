@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 20:46:43 by pbrandes          #+#    #+#             */
-/*   Updated: 2025/10/05 20:04:30 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/19 18:37:55 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ int		ft_strlen_till_c(char *str, char c);
 void	ft_tabjoin(char **t1, char **t2, int pos, int del);
 void	ft_tabdel(char ***tab, int pos);
 char	*ft_strrtrim(char *str, char *set);
+int		TableAddBack(char ***table, char *str);
 
 #endif
