@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:54:45 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:17:42 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/19 20:46:52 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,20 +61,40 @@ int	isEmpty(char *str)
 	return (!str[Index]);
 }
 
-int	isConfig(char *str)
+// Checks if the input line "line" from the ".cub" file is
+// a texture configuration line
+int	isConfig(char *line)
 {
 	int	Index;
 
 	Index = 0;
-	while (str[Index] && ft_iswhsp(str[Index]))
+	while (line[Index] && ft_iswhsp(line[Index]))
 		Index++;
-	if (str[Index]
-		&& (str[Index] == 'N'
-		|| str[Index] == 'S'
-		|| str[Index] == 'E'
-		|| str[Index] == 'W'
-		|| str[Index] == 'F'
-		|| str[Index] == 'C'))
+	if (line[Index]
+		&& (line[Index] == 'N'
+		|| line[Index] == 'S'
+		|| line[Index] == 'E'
+		|| line[Index] == 'W'
+		|| line[Index] == 'F'
+		|| line[Index] == 'C'))
 		return (1);
 	return (0);
+}
+
+// Extracts the texture config in the input line "line" from
+// the ".cub" file to the "Textures" struct passed
+void	CopyConfig(char *line, Textures *GameTextures)
+{
+	int	Index;
+
+	Index = 0;
+	while (ft_iswhsp(line[Index]))
+		Index++;
+	if (line[Index] == 'N'
+		|| line[Index] == 'S'
+		|| line[Index] == 'E'
+		|| line[Index] == 'W')
+		extractTexturePath(GameTextures, line + (Index + 1));
+	else
+		extractRGB(GameTextures, line + (Index + 1));
 }
