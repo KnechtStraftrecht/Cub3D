@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Map.h                                              :+:      :+:    :+:   */
+/*   GeneralErrors1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 18:46:07 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/18 21:01:51 by hkullert         ###   ########.fr       */
+/*   Created: 2026/01/19 19:08:50 by hkullert          #+#    #+#             */
+/*   Updated: 2026/01/19 19:22:10 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-	#define MAP_H
+#include "GeneralErrors.h"
+#include "Cleanups.h"
+#include "Map.h"
+#include "Textures.h"
 
-typedef struct s_Map
+// Error if memory allocation fails
+// Frees all non-void arguments passed
+void	E_Alloc(Map *GameMap, Textures *GameTextures)
 {
-	char	**Map;
-	int		PlayerPos[2];
-	int		nbRows;
-	int		nbColums;
-}	Map;
+	if (GameMap)
+		FreeMap(GameMap);
+	if (GameTextures)
+		FreeTextures(GameTextures);
+	exit(AllocFail);
+}
 
-#endif

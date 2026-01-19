@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ParsingErrors.c                                    :+:      :+:    :+:   */
+/*   ParsingErrors1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:21:26 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/18 21:48:57 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:15:32 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ErrorHeaders/ParsingErrors.h"
 
+// Error for wrong file extension (not ".cub")
 void	E_FileExtension(void)
 {
 	printf("Error\n");
@@ -19,9 +20,36 @@ void	E_FileExtension(void)
 	exit(FileExtension);
 }
 
+// Error if map file cannot be opened
 void	E_MapCantOpen(void)
 {
 	printf("Error\n");
 	printf("Map file cannot be opened!\n");
 	exit(MapCantOpen);
+}
+
+// Error if texture configs are missing
+void	E_TextureConfigM(void)
+{
+	printf("Error\n");
+	printf("Texture configurations are missing, please check the submitted map!\n");
+	exit(TextureConfMissing);
+}
+
+// Error if texture configs are invalid
+void	E_InvalidTextures(void)
+{
+	printf("Error\n");
+	printf("Invalid Textures were submitted!\n");
+	printf("RGB cannot be negative and Texturefile paths have to be correct!\n");
+	printf("Please check the submitted map.\n");
+	exit(InvalidTextures);
+}
+
+// Error if there is no player found on the map
+void	E_PlayerMissing(void)
+{
+	printf("Error\n");
+	printf("There is no Player on the Map!\n");
+	exit(PlayerMissing);
 }

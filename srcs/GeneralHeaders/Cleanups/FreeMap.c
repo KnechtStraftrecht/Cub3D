@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Textures.h                                         :+:      :+:    :+:   */
+/*   FreeMap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 19:02:18 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/18 20:22:25 by hkullert         ###   ########.fr       */
+/*   Created: 2026/01/19 18:42:20 by hkullert          #+#    #+#             */
+/*   Updated: 2026/01/19 19:28:27 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEXTURES_H
-	#define TEXTURES_H
+#include "Cleanups.h"
 
-typedef struct s_Textures
+// Frees parsed map of Cub3d
+void	FreeMap(Map *GameMap)
 {
-	char	*PathNorth;
-	char	*PathSouth;
-	char	*PathEast;
-	char	*PathWest;
-	int		CeilingColor[3];
-	int		FloorColor[3];
-}	Textures;
+	int	Index;
 
-#endif
+	Index = 0;
+	while (GameMap->Map[Index])
+	{
+		free(GameMap->Map[Index]);
+		Index++;
+	}
+	free(GameMap->Map);
+}
