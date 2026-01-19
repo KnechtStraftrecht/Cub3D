@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:47:09 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 21:08:42 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/19 21:45:41 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,43 @@ void	extractTexturePath(Textures *GameTextures, char *Line)
 	TexturePath[IndexPath] = '\0';
 }
 
+// Extracts parsed RGB value in "tmp" into the "Textures" struct
+// IndexRGB is the current RGB value filled in ceiling or floor RGB
+// C or F (CorF) tells if ceiling or floor color are being filled
+void	extractNumber(Textures *GameTextures, char **tmp, int *IndexRGB, char CorF)
+{
+	if (CorF == 'C')
+		GameTextures->CeilingColor[*IndexRGB] = ft_atoi(*tmp);
+	else
+		GameTextures->FloorColor[*IndexRGB] = ft_atoi(*tmp);
+	*IndexRGB++;
+}
+
 // Extracts RGB values in "Line" to "Textures" struct
 void	extractRGBs(Textures *GameTextures, char *Line)
 {
-	int	IndexLine;
+	char	*tmp;
+	char	CorF;
+	int		IndexLine;
+	int		IndexTmp;
+	int		IndexRGB;
 
-	IndexLine = 0;
-	
+	IndexLine = -1;
+	IndexTmp = 0;
+	IndexRGB = 0;
+	CorF = Line[IndexLine];
+	tmp = calloc(sizeof(char*), 4);
+	if (!tmp)
+		E_Alloc(NULL, GameTextures);
+	while (Line[++IndexLine] && IndexRGB < 3)
+	{
+		if (ft_isdigit(Line[IndexLine]) && IndexTmp < 3)
+			tmp[IndexTmp++] = Line[IndexLine];
+		else if (ft_strlen(tmp) > 0)
+		{
+			extractNumber(GameTextures, &tmp, &IndexRGB, CorF);
+			IndexTmp = 0;
+		}
+	}
+	free(tmp);
 }

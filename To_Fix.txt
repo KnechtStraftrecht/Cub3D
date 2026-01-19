@@ -1,0 +1,7 @@
+Parsing:
+	- In "ReadFile.c" in ReadMap() - E01:
+		The Textures struct isnt freed if any quitting error is caused, i.e. an E_-Function
+		is called, as the struct is not passed in the Function and therefore can not yet be freed, causing leaks
+	- In "ReadFile_Helpers2.c" in extractRGBs() - E02:
+		The Digits of the RGB values arent properly parsed. If a Number is too long its passed in groups of
+		3 digits and combined to a Number. For example 255255255,0,0 is passed as [255][255][255]

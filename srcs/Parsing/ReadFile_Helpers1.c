@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ReadFile_Helpers.c                                 :+:      :+:    :+:   */
+/*   ReadFile_Helpers1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:54:45 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:46:52 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/19 21:33:13 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,5 @@ void	CopyConfig(char *line, Textures *GameTextures)
 		|| line[Index] == 'W')
 		extractTexturePath(GameTextures, line + (Index + 1));
 	else
-		extractRGB(GameTextures, line + (Index + 1));
+		extractRGB(GameTextures, line + Index);
 }
