@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/20 14:50:48 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:01:50 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,5 @@ void	ReadFile(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	ReadTextures(MapPath, GameTextures);
 	ReadMap(MapPath, GameMap, GameTextures);
+	
 }

@@ -6,7 +6,7 @@
 #    By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/18 18:55:23 by hkullert          #+#    #+#              #
-#    Updated: 2026/01/19 19:43:37 by hkullert         ###   ########.fr        #
+#    Updated: 2026/01/20 14:58:36 by hkullert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,19 @@ LIBFT_PATH	= ./Libraries/Libft
 
 LIBFT		= $(LIBFT_PATH)/libft.a
 
-SRCS		= srcs/Main/main.c
+SRCS		= srcs/Main/main.c \
+	srcs/ErrorHandling/GeneralErrors1.c \
+	srcs/ErrorHandling/ParsingErrors1.c \
+	srcs/ErrorHandling/ParsingErrors2.c \
+	srcs/GeneralHeaders/Cleanups/FreeMap.c \
+	srcs/GeneralHeaders/Cleanups/FreeTextures.c \
+	srcs/Parsing/Parser.c \
+	srcs/Parsing/FileCheck.c \
+	srcs/Parsing/ReadFile.c \
+	srcs/Parsing/ReadFile_Helpers1.c \
+	srcs/Parsing/ReadFile_Helpers2.c \
+	srcs/TestFunctions/PrintMap.c \
+	srcs/TestFunctions/PrintTextures.c
 
 OBJS		= $(SRCS:.c=.o)
 

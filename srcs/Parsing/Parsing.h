@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 20:21:16 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:57:39 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/20 15:02:23 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 #include "libft.h"
 
 void	InputFileParser(char *MapPath, Map *GameMap, Textures *GameTextures);
+void	FileCheck(char *MapPath);
+void	ReadFile(char *MapPath, Map *GameMap, Textures *GameTextures);
 int		MapStart(char *FileSnippet);
 int		TexturesFilled(Textures *Textures);
 int		isEmpty(char *str);
