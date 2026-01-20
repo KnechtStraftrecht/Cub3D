@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 21:02:11 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:50:48 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ReadTextures(char *MapPath, Textures *GameTextures)
 
 	fd = open(MapPath, O_RDONLY);
 	if (fd < 0)
-		E_MapCantOpen();
+		E_MapCantOpen(GameTextures);
 	tmp = get_next_line(fd);
 	while (tmp && !MapStart(tmp) && !TexturesFilled(GameTextures))
 	{
@@ -38,26 +38,26 @@ void	ReadTextures(char *MapPath, Textures *GameTextures)
 // Reads the map and the number of rows of the map
 // into the "Map" struct "GameMap"
 // !!! FIX LEAK OF TEXTURES IF ERROR THROWN !!!
-void	ReadMap(char *MapPath, Map *GameMap)
+void	ReadMap(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	char	*tmp;
 	int		fd;
 
 	fd = open(MapPath, O_RDONLY);
 	if (fd < 0)
-		E_MapCantOpen();
+		E_MapCantOpen(GameTextures);
 	while (tmp && !MapStart(tmp))
 	{
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
 	if (!tmp)
-		E_MapMissing();
+		E_MapMissing(GameTextures);
 	GameMap->nbRows = 0;
 	while (tmp && !isEmpty(tmp))
 	{
 		if (TableAddBack(GameMap->Map, tmp) < 0)
-			E_Alloc(GameMap, NULL);
+			E_Alloc(GameMap, GameTextures);
 		GameMap->nbRows++;
 		free(tmp);
 		get_next_line(fd);
@@ -69,5 +69,5 @@ void	ReadMap(char *MapPath, Map *GameMap)
 void	ReadFile(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	ReadTextures(MapPath, GameTextures);
-	ReadMap(MapPath, GameMap);
+	ReadMap(MapPath, GameMap, GameTextures);
 }

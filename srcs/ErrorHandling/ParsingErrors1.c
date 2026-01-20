@@ -6,11 +6,12 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:21:26 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:13:03 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/20 14:47:29 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ParsingErrors.h"
+#include "Textures.h"
 
 // Error for wrong file extension (not ".cub")
 void	E_FileExtension(void)
@@ -21,10 +22,11 @@ void	E_FileExtension(void)
 }
 
 // Error if map file cannot be opened
-void	E_MapCantOpen(void)
+void	E_MapCantOpen(Textures *GameTextures)
 {
 	printf("Error\n");
 	printf("Map file cannot be opened!\n");
+	FreeTextures(GameTextures);
 	exit(MapCantOpen);
 }
 
