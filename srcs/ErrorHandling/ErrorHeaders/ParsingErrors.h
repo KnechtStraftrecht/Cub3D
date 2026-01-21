@@ -6,14 +6,14 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:28:35 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/20 14:48:29 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:36:02 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSINGERRORS_H
 	#define PARSINGERRORS_H
 
-#include <stdlib.h>
+#include <stdio.h>
 #include "Cleanups.h"
 
 // Parsing error code definitions (21-30 reserved)

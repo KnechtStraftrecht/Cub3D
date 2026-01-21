@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:30:38 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 18:38:02 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:41:13 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ int	TableAddBack(char ***table, char *str)
 
 	if (!table || !str)
 		return (-1);
-	table_new = malloc(sizeof(char *) * ft_tablen(table) + 2);
+	table_new = malloc(sizeof(char *) * ft_tablen(*table) + 2);
 	if (!table_new)
 		return (-1);
+	Index = 0;
 	while (*table[Index])
 	{
 		table_new[Index] = *table[Index];

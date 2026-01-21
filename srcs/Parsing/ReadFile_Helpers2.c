@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:47:09 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/20 14:40:49 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:04:37 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	extractTexturePath(Textures *GameTextures, char *Line)
 	while (Line[IndexLine + PathLenght] && !ft_iswhsp(Line[IndexLine + PathLenght])
 		&& Line[IndexLine + PathLenght] != '\n')
 		PathLenght++;
-	TexturePath = malloc(sizeof(char) * PathLenght + 1);
+	TexturePath = malloc(sizeof(char) * PathLenght + 2);
 	if (!TexturePath)
 		E_Alloc(NULL, GameTextures);
 	IndexPath = 0;
@@ -67,7 +67,7 @@ int	getValues(Textures *GameTextures, char *Line, char CorF)
 	IndexRGB = 0;
 	while (IndexRGB < 3)
 	{
-		if (ft_strlen(Values[IndexRGB]) > 3)
+		if (ft_strlen(Values[IndexRGB]) > 4)
 			return (InvalidTextures);
 		Error = CopyRGB(GameTextures, Values[IndexRGB], CorF, IndexRGB);
 		if (Error > 0)
@@ -87,7 +87,7 @@ void	extractRGBs(Textures *GameTextures, char *Line)
 
 	IndexLine = 0;
 	CorF = Line[IndexLine];
-	while (Line[IndexLine] && !ft_isdigit)
+	while (Line[IndexLine] && !ft_isdigit(Line[IndexLine]))
 		IndexLine++;
 	Error = getValues(GameTextures, Line +IndexLine, CorF);
 	if (Error == AllocFail)

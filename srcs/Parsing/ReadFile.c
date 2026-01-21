@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/20 15:01:50 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:04:31 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ReadTextures(char *MapPath, Textures *GameTextures)
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
-	if (!TexturesFilled)
+	if (!TexturesFilled(GameTextures))
 		E_TextureConfigM();
 }
 
@@ -46,6 +46,7 @@ void	ReadMap(char *MapPath, Map *GameMap, Textures *GameTextures)
 	fd = open(MapPath, O_RDONLY);
 	if (fd < 0)
 		E_MapCantOpen(GameTextures);
+	tmp = get_next_line(fd);
 	while (tmp && !MapStart(tmp))
 	{
 		free(tmp);
@@ -56,7 +57,7 @@ void	ReadMap(char *MapPath, Map *GameMap, Textures *GameTextures)
 	GameMap->nbRows = 0;
 	while (tmp && !isEmpty(tmp))
 	{
-		if (TableAddBack(GameMap->Map, tmp) < 0)
+		if (TableAddBack(&GameMap->Map, tmp) < 0)
 			E_Alloc(GameMap, GameTextures);
 		GameMap->nbRows++;
 		free(tmp);
@@ -70,5 +71,5 @@ void	ReadFile(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	ReadTextures(MapPath, GameTextures);
 	ReadMap(MapPath, GameMap, GameTextures);
-	
+
 }

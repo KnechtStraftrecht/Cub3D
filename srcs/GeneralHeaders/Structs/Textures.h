@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:02:18 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:04:51 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:59:19 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ typedef struct s_Textures
 	int		CeilingColor[3];
 	int		FloorColor[3];
 }	Textures;
+
+void	InitializeTextures(Textures *GameTextures);
 
 #endif

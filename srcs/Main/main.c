@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:44:43 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/20 15:03:04 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:59:40 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	main(int argc, char **argv)
 	Map			GameMap;
 	Textures	GameTextures;
 
+	if (argc > 2 || argc < 2)
+		return (1);
+	InitializeTextures(&GameTextures);
 	InputFileParser(argv[1], &GameMap, &GameTextures);
 	PrintTextures(&GameTextures);
 	PrintMap(&GameMap);

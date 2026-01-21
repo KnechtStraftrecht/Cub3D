@@ -6,14 +6,14 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 19:08:50 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 19:22:10 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 18:35:01 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "GeneralErrors.h"
-#include "Cleanups.h"
 #include "Map.h"
 #include "Textures.h"
+#include "GeneralErrors.h"
+#include "Cleanups.h"
 
 // Error if memory allocation fails
 // Frees all non-void arguments passed
