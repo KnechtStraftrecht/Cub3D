@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 20:21:16 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 18:39:08 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:09:27 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	FileCheck(char *MapPath);
 void	ReadFile(char *MapPath, Map *GameMap, Textures *GameTextures);
 void	CopyConfig(char *line, Textures *GameTextures);
 void	extractRGBs(Textures *GameTextures, char *Line);
-void	extractTexturePath(Textures *GameTextures, char *Line);
+void	extractTexturePath(Textures *GameTextures, char *Line, char ID);
 int		MapStart(char *FileSnippet);
 int		TexturesFilled(Textures *Textures);
 int		isEmpty(char *str);

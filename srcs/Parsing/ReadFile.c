@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 20:04:31 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:27:59 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,13 @@ void	ReadMap(char *MapPath, Map *GameMap, Textures *GameTextures)
 	}
 	if (!tmp)
 		E_MapMissing(GameTextures);
-	GameMap->nbRows = 0;
 	while (tmp && !isEmpty(tmp))
 	{
-		if (TableAddBack(&GameMap->Map, tmp) < 0)
+		if (TableAddBack(&(GameMap->Map), tmp) < 0)
 			E_Alloc(GameMap, GameTextures);
 		GameMap->nbRows++;
 		free(tmp);
-		get_next_line(fd);
+		tmp = get_next_line(fd);
 	}
 	free(tmp);
 }

@@ -6,34 +6,23 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:47:09 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 20:04:37 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 21:09:21 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Parsing.h"
 
 // Extracts paths to wall textures in "Line" to "Textures" struct
-void	extractTexturePath(Textures *GameTextures, char *Line)
+void	extractTexturePath(Textures *GameTextures, char *Line, char ID)
 {
-	char	*TexturePath;
-	int		PathLenght;
-	int		IndexLine;
-	int		IndexPath;
-
-	IndexLine = 0;
-	while (Line[IndexLine] && Line[IndexLine] != '.')
-		IndexLine++;
-	PathLenght = 0;
-	while (Line[IndexLine + PathLenght] && !ft_iswhsp(Line[IndexLine + PathLenght])
-		&& Line[IndexLine + PathLenght] != '\n')
-		PathLenght++;
-	TexturePath = malloc(sizeof(char) * PathLenght + 2);
-	if (!TexturePath)
-		E_Alloc(NULL, GameTextures);
-	IndexPath = 0;
-	while (Line[IndexLine])
-		TexturePath[IndexPath++] = Line[IndexLine++];
-	TexturePath[IndexPath] = '\0';
+	if (ID == 'N')
+		GameTextures->PathNorth =ft_strtrim(Line, " \n");
+	else if (ID == 'S')
+		GameTextures->PathSouth=ft_strtrim(Line, " \n");
+	else if (ID == 'E')
+		GameTextures->PathEast =ft_strtrim(Line, " \n");
+	else if (ID == 'W')
+		GameTextures->PathWest =ft_strtrim(Line, " \n");
 }
 
 // Copies the parsed RGB values into Textures struct
@@ -90,6 +79,7 @@ void	extractRGBs(Textures *GameTextures, char *Line)
 	while (Line[IndexLine] && !ft_isdigit(Line[IndexLine]))
 		IndexLine++;
 	Error = getValues(GameTextures, Line +IndexLine, CorF);
+	free(Line);
 	if (Error == AllocFail)
 		E_Alloc(NULL, GameTextures);
 	if (Error == TextureConfMissing)

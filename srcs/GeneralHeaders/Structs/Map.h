@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:46:07 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 20:04:39 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:38:06 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@
 	int		nbRows;
 	int		nbColums;
 }	Map;
+
+void	InitializeMap(Map *GameMap);
 
 #endif

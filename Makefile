@@ -6,7 +6,7 @@
 #    By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/18 18:55:23 by hkullert          #+#    #+#              #
-#    Updated: 2026/01/21 20:06:35 by hkullert         ###   ########.fr        #
+#    Updated: 2026/01/21 20:38:36 by hkullert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRCS		= srcs/Main/main.c \
 				srcs/ErrorHandling/ParsingErrors1.c \
 				srcs/ErrorHandling/ParsingErrors2.c \
 				srcs/GeneralHeaders/Structs/InitializeTextures.c \
+				srcs/GeneralHeaders/Structs/InitializeMap.c \
 				srcs/GeneralHeaders/Cleanups/FreeMap.c \
 				srcs/GeneralHeaders/Cleanups/FreeTextures.c \
 				srcs/Parsing/Parser.c \

@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:54:45 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 18:40:15 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/21 20:31:16 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	MapStart(char *FileSnippet)
 	if (!FileSnippet[Index]
 		|| FileSnippet[Index] == 'N'
 		|| FileSnippet[Index] == 'S'
-		|| FileSnippet[Index] == 'O'
+		|| FileSnippet[Index] == 'E'
 		|| FileSnippet[Index] == 'W'
 		|| FileSnippet[Index] == 'C'
 		|| FileSnippet[Index] == 'F'
@@ -94,7 +94,8 @@ void	CopyConfig(char *line, Textures *GameTextures)
 		|| line[Index] == 'S'
 		|| line[Index] == 'E'
 		|| line[Index] == 'W')
-		extractTexturePath(GameTextures, line + (Index + 1));
+		extractTexturePath(GameTextures, line + (Index + 2), line[Index]);
 	else
-		extractRGBs(GameTextures, line + Index);
+		extractRGBs(GameTextures, ft_strtrim(line, "\n"));
 }
+
