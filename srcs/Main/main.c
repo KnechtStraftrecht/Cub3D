@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:44:43 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 21:25:44 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/31 22:37:00 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	Textures	GameTextures;
 
 	if (argc > 2 || argc < 2)
-		return (1);
+		E_ArgumentCount();
 	InitializeMap(&GameMap);
 	InitializeTextures(&GameTextures);
 	InputFileParser(argv[1], &GameMap, &GameTextures);
