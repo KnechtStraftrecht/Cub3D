@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 21:27:59 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/31 22:27:28 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ void	ReadTextures(char *MapPath, Textures *GameTextures)
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
+	free(tmp);
 	if (!TexturesFilled(GameTextures))
 		E_TextureConfigM();
+	close(fd);
 }
 
 // Reads the map and the number of rows of the map
@@ -62,7 +64,9 @@ void	ReadMap(char *MapPath, Map *GameMap, Textures *GameTextures)
 		free(tmp);
 		tmp = get_next_line(fd);
 	}
+	close(fd);
 	free(tmp);
+	MapFormat(GameMap);
 }
 
 // Responsible for reading out the input file

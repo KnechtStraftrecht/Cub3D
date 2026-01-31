@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:47:09 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 21:09:21 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/31 22:10:39 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,17 @@ void	extractRGBs(Textures *GameTextures, char *Line)
 		E_TextureConfigM();
 	if (Error == InvalidTextures)
 		E_InvalidTextures();
+}
+
+// Gets rid of all '\n' at the end of each row and replaces Tabs with 4 spaces
+void	MapFormat(Map *GameMap)
+{
+	int	Index;
+
+	Index = -1;
+	while (GameMap->Map[++Index])
+	{
+		StrAlterAr1(&GameMap->Map[Index], &ft_strtrim, "\n");
+		StrReplace(&GameMap->Map[Index], '\t', "    ");
+	}
 }

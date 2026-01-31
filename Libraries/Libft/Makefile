@@ -6,7 +6,7 @@
 #    By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/10 20:16:18 by pbrandes          #+#    #+#              #
-#    Updated: 2026/01/21 21:20:13 by hkullert         ###   ########.fr        #
+#    Updated: 2026/01/31 21:59:12 by hkullert         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,8 +92,9 @@ SRC = ft_itoa.c \
 	ft_tabdel.c \
 	ft_strrtrim.c \
 	TableAddBack.c \
-	checkNull.c
-
+	checkNull.c \
+	StrAlterAr1.c \
+	StrReplace.c
 
 OBJ = $(SRC:.c=.o)
 

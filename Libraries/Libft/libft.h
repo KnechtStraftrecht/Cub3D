@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 20:46:43 by pbrandes          #+#    #+#             */
-/*   Updated: 2026/01/21 21:10:12 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/01/31 22:09:05 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim(char *s1, char *set);
 char	**ft_split(char *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_itoa(int n);
@@ -133,6 +133,8 @@ void	ft_tabjoin(char **t1, char **t2, int pos, int del);
 void	ft_tabdel(char ***tab, int pos);
 char	*ft_strrtrim(char *str, char *set);
 int		TableAddBack(char ***table, char *str);
-int	checkNull(char **table);
+int		checkNull(char **table);
+void	StrAlterAr1(char **str, char*(*f)(char *, char *), char *set);
+void	StrReplace(char **str, char repl, char *set);
 
 #endif

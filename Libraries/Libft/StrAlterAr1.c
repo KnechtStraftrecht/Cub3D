@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   StrAlterAr1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:52:05 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/31 22:00:20 by hkullert         ###   ########.fr       */
+/*   Created: 2026/01/31 20:54:16 by hkullert          #+#    #+#             */
+/*   Updated: 2026/01/31 22:11:37 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char *s1, char *set)
+// Passes str to function f with argument set, replaces str with altered version
+void	StrAlterAr1(char **str, char*(*f)(char *, char *), char *set)
 {
-	int		i;
-	int		j;
+	char	*tmp;
 
-	i = 0;
-	j = ft_strlen(s1);
-	if (*s1 && *set)
-	{
-		while (ft_strchr(set, s1[i]))
-			i++;
-		while (ft_strchr(set, s1[j - 1]))
-			j--;
-	}
-	return (ft_substr(s1, i, j - i));
+	tmp = f((*str), set);
+	free((*str));
+	(*str) = tmp;
 }
-
-// int	main(void)
-// {
-// 	char	*s = "lorem ipsum dolor sit amet";
-
-// 	printf("%s", ft_strtrim(s, "tel"));
-// 	return (0);
-// }
