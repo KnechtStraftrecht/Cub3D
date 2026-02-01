@@ -1,4 +1,5 @@
 Checks:
 	- Add map size check into map read loop
+	- yClosed out of bounds prevention with ft_strlen
 
 

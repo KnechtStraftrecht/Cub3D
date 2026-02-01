@@ -6,11 +6,65 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:06 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 21:41:50 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 22:03:41 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Parsing.h"
+
+int	xClosed(Map *GameMap)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = -1;
+	while (GameMap->Map[++y])
+	{
+		while (GameMap->Map[y][x])
+		{
+			if (GameMap->Map[y][x] == '0')
+			{
+				if (x == 0 || GameMap->Map[y][x - 1] != '1')
+					return (MapNotClosed);
+				while (GameMap->Map[y][x] && GameMap->Map[y][x] == '0')
+					x++;
+				if (!GameMap->Map[y][x] || GameMap->Map[y][x] != '1')
+					return (MapNotClosed);
+			}
+			x++;
+		}
+		x = 0;
+	}
+	return (0);
+}
+
+int	yClosed(Map *GameMap)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = -1;
+	while (GameMap->Map[y][x])
+	{
+		while (GameMap->Map[y][x])
+		{
+			if (GameMap->Map[y][x] == '0')
+			{
+				if (y == 0 || GameMap->Map[y - 1][x] != '1')
+					return (MapNotClosed);
+				while (GameMap->Map[y][x] && GameMap->Map[y][x] == '0')
+					y++;
+				if (!GameMap->Map[y][x] || GameMap->Map[y][x] != '1')
+					return (MapNotClosed);
+			}
+			y++;
+		}
+		y = -1;
+	}
+	return (0);
+}
 
 int	checkClosed(Map *GameMap)
 {
@@ -21,12 +75,14 @@ int	checkClosed(Map *GameMap)
 	return (Error);
 }
 
+// Checks the submitted map for unknown characters
+// Checks whether the map is closed or not
 void	MapCheck(Map *GameMap, Textures *GameTextures)
 {
 	int	Error;
 
 	Error = 0;
-	Error = checkClosednUnknown(GameMap, GameTextures);
+	Error = checkClosed(GameMap);
 	if (Error == MapNotClosed)
 	{
 		FreeMap(GameMap);

@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:44:43 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 20:10:27 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 22:05:22 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ int	main(int argc, char **argv)
 {
 	Map			GameMap;
 	Textures	GameTextures;
+	MlxVars		MlxVars;
 
 	if (argc > 2 || argc < 2)
 		E_ArgumentCount();
 	InitializeMap(&GameMap);
 	InitializeTextures(&GameTextures);
-	InputFileParser(argv[1], &GameMap, &GameTextures);
+	InitializeMlx(&MlxVars);
+	InputFileParser(argv[1], &GameMap, &GameTextures, &MlxVars);
 	PrintTextures(&GameTextures);
 	PrintMap(&GameMap);
 	FreeMap(&GameMap);
