@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:06 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 22:03:41 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 23:18:20 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,24 @@ int	yClosed(Map *GameMap)
 	int	x;
 	int	y;
 
-	x = 0;
-	y = -1;
-	while (GameMap->Map[y][x])
+	x = -1;
+	y = 0;
+	while (GameMap->Map[y][++x])
 	{
 		while (GameMap->Map[y][x])
 		{
 			if (GameMap->Map[y][x] == '0')
 			{
-				if (y == 0 || GameMap->Map[y - 1][x] != '1')
+				if (y == 0 || x > ft_strlen(GameMap->Map[y - 1][x]) || GameMap->Map[y - 1][x] != '1')
 					return (MapNotClosed);
-				while (GameMap->Map[y][x] && GameMap->Map[y][x] == '0')
+				while ((GameMap->Map[y][x] && GameMap->Map[y][x] == '0') || x > ft_strlen(GameMap->Map[y]))
 					y++;
-				if (!GameMap->Map[y][x] || GameMap->Map[y][x] != '1')
+				if (x > ft_strlen(GameMap->Map[y - 1][x]) || !GameMap->Map[y][x] || GameMap->Map[y][x] != '1')
 					return (MapNotClosed);
 			}
 			y++;
 		}
-		y = -1;
+		y = 0;
 	}
 	return (0);
 }
