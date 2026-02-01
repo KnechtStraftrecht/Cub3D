@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 20:21:16 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/31 21:54:12 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 20:17:26 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int		TexturesFilled(Textures *Textures);
 int		isEmpty(char *str);
 int		isConfig(char *line);
 void	MapFormat(Map *GameMap);
+void	TextureCheck(Textures *GameTextures, Map *GameMap);
 
 #endif

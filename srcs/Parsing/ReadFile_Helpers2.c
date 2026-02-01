@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:47:09 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 18:24:53 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 20:11:04 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	CopyRGB(Textures *GameTextures, char *RGB, char CorF, int IndexRGB)
 		GameTextures->FloorColor[IndexRGB] = ft_atoi(RGB);
 	else
 		GameTextures->CeilingColor[IndexRGB] = ft_atoi(RGB);
-	return (0);
+	return (SUCCESS);
 }
 
 // Parses and writes RGB values from ".cub" File into Textures struct
@@ -64,7 +64,7 @@ int	getValues(Textures *GameTextures, char *Line, char CorF)
 		IndexRGB++;
 	}
 	free_double_ptr(Values);
-	return (0);
+	return (SUCCESS);
 }
 
 // Extracts RGB values in "Line" to "Textures" struct

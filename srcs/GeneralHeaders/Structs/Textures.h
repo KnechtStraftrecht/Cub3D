@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Textures.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:02:18 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 18:59:19 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 19:57:31 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ typedef struct s_Textures
 	char	*PathSouth;
 	char	*PathEast;
 	char	*PathWest;
+	void	*ImgNorth;
+	void	*ImgSouth;
+	void	*ImgEast;
+	void	*ImgWest;
 	int		CeilingColor[3];
 	int		FloorColor[3];
 }	Textures;

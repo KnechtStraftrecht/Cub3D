@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:44:43 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/31 22:37:00 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 20:10:27 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	main(int argc, char **argv)
 	PrintMap(&GameMap);
 	FreeMap(&GameMap);
 	FreeTextures(&GameTextures);
-	return (0);
+	return (SUCCESS);
 }
