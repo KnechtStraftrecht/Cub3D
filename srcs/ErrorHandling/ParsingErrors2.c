@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ParsingErrors2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 22:37:59 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/31 22:40:53 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:22:34 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ void	E_MapNotClosed(void)
 }
 
 // Error if no map is found in the passed '.cub' file
-void	E_MapMissing(Textures *GameTextures)
+void	E_MapMissing(Textures *GameTextures, int fd)
 {
 	printf("Error\n");
 	printf("The file passed, does not contain a map!\n");
 	FreeTextures(GameTextures);
+	close(fd);
 	exit(MapMissing);
 }

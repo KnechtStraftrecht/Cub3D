@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ReadFile_Helpers2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 20:47:09 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/31 22:10:39 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:24:53 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	extractRGBs(Textures *GameTextures, char *Line)
 	Error = getValues(GameTextures, Line +IndexLine, CorF);
 	free(Line);
 	if (Error == AllocFail)
-		E_Alloc(NULL, GameTextures);
+		E_Alloc(NULL, GameTextures, -1);
 	if (Error == TextureConfMissing)
 		E_TextureConfigM();
 	if (Error == InvalidTextures)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   GeneralErrors.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 19:09:08 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/31 22:39:01 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:24:28 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef enum s_GeneralErrorCodes
 	AllocFail = 3,
 }	GeneralErrorCodes;
 
-void	E_Alloc(Map *GameMap, Textures *GameTextures);
+void	E_Alloc(Map *GameMap, Textures *GameTextures, int fd);
 void	E_ArgumentCount(void);
 
 #endif

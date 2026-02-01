@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ParsingErrors1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:21:26 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/20 14:47:29 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:21:33 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	E_MapCantOpen(Textures *GameTextures)
 }
 
 // Error if texture configs are missing
-void	E_TextureConfigM(void)
+void	E_TextureConfigM(int fd)
 {
 	printf("Error\n");
 	printf("Texture configurations are missing, please check the submitted map!\n");
+	close(fd);
 	exit(TextureConfMissing);
 }
 

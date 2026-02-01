@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:24 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/19 19:34:03 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:25:32 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	InputFileParser(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	FileCheck(MapPath);
 	ReadFile(MapPath, GameMap, GameTextures);
-	// MapCheck(GameMap);
 	// TextureCheck(GameTextures);
+	// MapCheck(GameMap);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ParsingErrors.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:28:35 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 18:36:02 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/01 18:23:18 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ typedef enum s_ParsingErrorCodes
 
 void	E_FileExtension(void);
 void	E_MapCantOpen(Textures *GameTextures);
-void	E_TextureConfigM(void);
+void	E_TextureConfigM(int fd);
 void	E_InvalidTextures(void);
 void	E_PlayerMissing(void);
 void	E_TooManyPlayers(void);
 void	E_MapNotClosed(void);
-void	E_MapMissing(Textures *GameTextures);
-
+void	E_MapMissing(Textures *GameTextures, int fd);
 #endif
