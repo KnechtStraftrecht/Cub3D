@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:24 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 18:25:32 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 20:19:05 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	InputFileParser(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	FileCheck(MapPath);
 	ReadFile(MapPath, GameMap, GameTextures);
-	// TextureCheck(GameTextures);
+	TextureCheck(GameTextures, GameMap);
 	// MapCheck(GameMap);
 }

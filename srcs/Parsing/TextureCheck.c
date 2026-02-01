@@ -6,12 +6,13 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 22:19:08 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 20:17:20 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 20:28:09 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Parsing.h"
 
+// Checks for valid texture paths
 int	CheckTextureFiles(Textures *GameTextures)
 {
 	GameTextures->ImgNorth = mlx_xpm_file_to_image(mlx, GameTextures->PathNorth, &Width, &Height);
@@ -26,6 +27,7 @@ int	CheckTextureFiles(Textures *GameTextures)
 	return (0);
 }
 
+// Checks for valid RGB values
 int	CheckRGBs(Textures *GameTextures)
 {
 	int	Index;
@@ -43,6 +45,7 @@ int	CheckRGBs(Textures *GameTextures)
 	return (0);
 }
 
+// Checks if textures are valid
 void	TextureCheck(Textures *GameTextures, Map *GameMap)
 {
 	int	Error;

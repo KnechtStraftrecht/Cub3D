@@ -1,3 +1,4 @@
-Parsing:
+Checks:
+	- Add map size check into map read loop
 
 

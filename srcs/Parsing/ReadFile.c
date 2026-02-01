@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:07:03 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 18:25:10 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 20:25:20 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ReadTextures(char *MapPath, Textures *GameTextures)
 
 // Reads the map and the number of rows of the map
 // into the "Map" struct "GameMap"
-// !!! FIX LEAK OF TEXTURES IF ERROR THROWN !!!
 void	ReadMap(char *MapPath, Map *GameMap, Textures *GameTextures)
 {
 	char	*tmp;

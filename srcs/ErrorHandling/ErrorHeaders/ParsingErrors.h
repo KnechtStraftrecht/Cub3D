@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:28:35 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 18:23:18 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 20:38:02 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef enum s_ParsingErrorCodes
 	PlayerMissing = 26,
 	TooManyPlayers = 27,
 	MapNotClosed = 28,
+	UnknownEntity = 29,
 }	ParsingErrorCodes;
 
 void	E_FileExtension(void);

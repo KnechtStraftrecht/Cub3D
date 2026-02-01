@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 22:37:59 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 18:22:34 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/01 21:40:22 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,11 @@ void	E_MapMissing(Textures *GameTextures, int fd)
 	FreeTextures(GameTextures);
 	close(fd);
 	exit(MapMissing);
+}
+
+// Error if unknown entity is encountered on the map
+void	E_UnknowEntity(char UnknownEntity, int x, int y)
+{
+	printf("Unknown character found: %c, at: [%i][%i]!\n", UnknownEntity, x, y);
+	exit(UnknownEntity);
 }
