@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ParsingErrors1.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
+/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 19:21:26 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 18:21:33 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/16 19:33:41 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	E_TextureConfigM(int fd)
 {
 	printf("Error\n");
 	printf("Texture configurations are missing, please check the submitted map!\n");
-	close(fd);
+	if (fd > 0)
+		close(fd);
 	exit(TextureConfMissing);
 }
 

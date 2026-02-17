@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   InitializeMlx.c                                    :+:      :+:    :+:   */
+/*   Main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 22:14:19 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/16 21:15:44 by hkullert         ###   ########.fr       */
+/*   Created: 2026/02/16 21:10:57 by hkullert          #+#    #+#             */
+/*   Updated: 2026/02/16 21:12:26 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MlxVars.h"
-#include <stdio.h>
-#include "Main.h"
+#ifndef MAIN_H
+	#define MAIN_H
 
-void	InitializeMlx(MlxVars *MlxVars)
-{
-	MlxVars->Connection = mlx_init();
-	MlxVars->Window = mlx_new_window(MlxVars->Connection, WIDTH, HEIGHT, "Cub3D");
-	InitializeImage(MlxVars->Screen, MlxVars, WIDTH, HEIGHT);
-}
+#define WIDTH 1920
+#define HEIGHT 1080
+
+#include "Parsing.h"
+#include "TestFunctions.h"
+#include "GameData.h"
+
+#endif

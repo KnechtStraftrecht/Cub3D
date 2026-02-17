@@ -6,7 +6,7 @@
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 21:54:45 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 20:31:16 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/16 19:35:26 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,10 @@ void	CopyConfig(char *line, Textures *GameTextures)
 	Index = 0;
 	while (ft_iswhsp(line[Index]))
 		Index++;
-	if (line[Index] == 'N'
-		|| line[Index] == 'S'
-		|| line[Index] == 'E'
-		|| line[Index] == 'W')
+	if (ft_strcmp(line + Index, "NO")
+		|| ft_strcmp(line + Index, "SO")
+		|| ft_strcmp(line + Index, "EA")
+		|| ft_strcmp(line + Index, "WE"))
 		extractTexturePath(GameTextures, line + (Index + 2), line[Index]);
 	else
 		extractRGBs(GameTextures, ft_strtrim(line, "\n"));

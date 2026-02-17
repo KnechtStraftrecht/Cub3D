@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   InitializeMlx.c                                    :+:      :+:    :+:   */
+/*   GameData.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 22:14:19 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/16 21:15:44 by hkullert         ###   ########.fr       */
+/*   Created: 2026/02/16 20:50:08 by hkullert          #+#    #+#             */
+/*   Updated: 2026/02/16 21:15:15 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MlxVars.h"
-#include <stdio.h>
-#include "Main.h"
+#ifndef GAMEDATA_H
+	#define GAMEDATA_H
 
-void	InitializeMlx(MlxVars *MlxVars)
-{
-	MlxVars->Connection = mlx_init();
-	MlxVars->Window = mlx_new_window(MlxVars->Connection, WIDTH, HEIGHT, "Cub3D");
-	InitializeImage(MlxVars->Screen, MlxVars, WIDTH, HEIGHT);
-}
+#include "MlxVars.h"
+#include "Image.h"
+#include "Map.h"
+#include "Textures.h"
+
+// Data struct for mlx loop, combines all other structs into one
+// - MlxVars	*MlxVars;
+// - Map		*Map;
+// - Textures	*Textures;
+typedef struct s_GameData {
+	MlxVars		*MlxVars;
+	Map			*Map;
+	Textures	*Textures;
+}	GameData;
+
+void	InitializeGameData(GameData *Data, MlxVars *Mlx, Map *Map, Textures *Textures);
+
+#endif

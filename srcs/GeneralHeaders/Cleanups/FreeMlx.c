@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   InitializeMlx.c                                    :+:      :+:    :+:   */
+/*   FreeMlx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 22:14:19 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/16 21:15:44 by hkullert         ###   ########.fr       */
+/*   Created: 2026/02/03 18:45:48 by hkullert          #+#    #+#             */
+/*   Updated: 2026/02/16 21:18:58 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MlxVars.h"
-#include <stdio.h>
-#include "Main.h"
+#include "Cleanups.h"
 
-void	InitializeMlx(MlxVars *MlxVars)
+void	FreeMlx(MlxVars *MlxVars)
 {
-	MlxVars->Connection = mlx_init();
-	MlxVars->Window = mlx_new_window(MlxVars->Connection, WIDTH, HEIGHT, "Cub3D");
-	InitializeImage(MlxVars->Screen, MlxVars, WIDTH, HEIGHT);
+	mlx_clear_window(MlxVars->Connection, MlxVars->Window);
+	mlx_destroy_window(MlxVars->Connection, MlxVars->Window);
+	FreeImage(MlxVars->Screen);
+	mlx_destroy_display(MlxVars->Connection);
 }

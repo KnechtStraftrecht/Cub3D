@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   InitializeMlx.c                                    :+:      :+:    :+:   */
+/*   PutPixel.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 22:14:19 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/16 21:15:44 by hkullert         ###   ########.fr       */
+/*   Created: 2026/02/06 10:16:00 by hkullert          #+#    #+#             */
+/*   Updated: 2026/02/12 13:20:00 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MlxVars.h"
-#include <stdio.h>
-#include "Main.h"
+#include "Image.h"
 
-void	InitializeMlx(MlxVars *MlxVars)
+void	PutPixel(Img *Image, int x, int y, int color)
 {
-	MlxVars->Connection = mlx_init();
-	MlxVars->Window = mlx_new_window(MlxVars->Connection, WIDTH, HEIGHT, "Cub3D");
-	InitializeImage(MlxVars->Screen, MlxVars, WIDTH, HEIGHT);
+	char	*Destination;
+	int		Offset;
+
+	Offset = y * Image->LineLenght + x * (Image->BitsPPixel / 8);
+	Destination = Image->Address + Offset;
+	Destination[1] = get_r(color);
+	Destination[2] = get_g(color);
+	Destination[3] = get_b(color);
 }

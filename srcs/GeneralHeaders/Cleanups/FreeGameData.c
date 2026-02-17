@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   InitializeMlx.c                                    :+:      :+:    :+:   */
+/*   FreeGameData.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 22:14:19 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/16 21:15:44 by hkullert         ###   ########.fr       */
+/*   Created: 2026/02/16 20:59:12 by hkullert          #+#    #+#             */
+/*   Updated: 2026/02/16 21:05:37 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MlxVars.h"
-#include <stdio.h>
-#include "Main.h"
+#include "Cleanups.h"
 
-void	InitializeMlx(MlxVars *MlxVars)
+// Frees GameData struct, closes Mlx
+// - Frees Map
+// - Frees Textures
+// - Clears Mlx
+// 		- Destroys Window
+// 		- Closes Connection
+// 		- Frees Screen Img;
+void	FreeGameData(GameData *Data)
 {
-	MlxVars->Connection = mlx_init();
-	MlxVars->Window = mlx_new_window(MlxVars->Connection, WIDTH, HEIGHT, "Cub3D");
-	InitializeImage(MlxVars->Screen, MlxVars, WIDTH, HEIGHT);
+	FreeMap(Data->Map);
+	FreeTextures(Data->Textures);
+	FreeMlx(Data->MlxVars);
 }

@@ -3,27 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   TextureCheck.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
+/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 22:19:08 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/01 20:28:09 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/02/16 19:44:36 by hkullert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Parsing.h"
 
 // Checks for valid texture paths
-int	CheckTextureFiles(Textures *GameTextures)
+int	CheckTextureFiles(Textures *GameTextures, MlxVars *MlxVars)
 {
-	GameTextures->ImgNorth = mlx_xpm_file_to_image(mlx, GameTextures->PathNorth, &Width, &Height);
-	GameTextures->ImgSouth = mlx_xpm_file_to_image(mlx, GameTextures->PathSouth, &Width, &Height);
-	GameTextures->ImgEast = mlx_xpm_file_to_image(mlx, GameTextures->PathEast, &Width, &Height);
-	GameTextures->ImgWest = mlx_xpm_file_to_image(mlx, GameTextures->PathWest, &Width, &Height);
-	if (!GameTextures->ImgNorth
-		|| !GameTextures->ImgSouth
-		|| !GameTextures->ImgEast
-		|| !GameTextures->ImgWest)
+	if (InitializeImage(&GameTextures->ImgNorth, MlxVars,
+		GameTextures->PathNorth) > 0
+		|| InitializeImage(&GameTextures->ImgSouth, MlxVars,
+			GameTextures->PathSouth) > 0
+		|| InitializeImage(&GameTextures->ImgEast, MlxVars,
+			GameTextures->PathEast) > 0
+		|| InitializeImage(&GameTextures->ImgWest, MlxVars,
+			GameTextures->PathWest) > 0)
 		return (InvalidTextures);
+	free(GameTextures->PathNorth);
+	GameTextures->PathNorth = NULL;
+	free(GameTextures->PathSouth);
+	GameTextures->PathSouth = NULL;
+	free(GameTextures->PathEast);
+	GameTextures->PathEast = NULL;
+	free(GameTextures->PathWest);
+	GameTextures->PathWest = NULL;
 	return (0);
 }
 
@@ -46,12 +54,12 @@ int	CheckRGBs(Textures *GameTextures)
 }
 
 // Checks if textures are valid
-void	TextureCheck(Textures *GameTextures, Map *GameMap)
+void	TextureCheck(Textures *GameTextures, Map *GameMap, MlxVars *MlxVars)
 {
 	int	Error;
 
 	Error = 0;
-	Error = CheckTextureFiles(GameTextures);
+	Error = CheckTextureFiles(GameTextures, MlxVars);
 	if (Error == InvalidTextures)
 	{
 		FreeMap(GameMap);
