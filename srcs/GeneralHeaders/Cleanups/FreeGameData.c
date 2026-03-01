@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FreeGameData.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 20:59:12 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/16 21:05:37 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/21 21:54:25 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	FreeGameData(GameData *Data)
 	FreeMap(Data->Map);
 	FreeTextures(Data->Textures);
 	FreeMlx(Data->MlxVars);
+	exit(0);
 }

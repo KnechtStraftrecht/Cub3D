@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hkullert <hkullert@student.42.fr>          +#+  +:+       +#+        */
+/*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 18:46:07 by hkullert          #+#    #+#             */
-/*   Updated: 2026/01/21 20:38:06 by hkullert         ###   ########.fr       */
+/*   Updated: 2026/02/21 21:02:01 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 // Struct for map of Cub3d
 // - char	**Map;
-// - int	PlayerPos[2];
 // - int	nbRows;
 // - int	nbColums;
 	typedef struct s_Map
 {
 	char	**Map;
-	int		PlayerPos[2];
 	int		nbRows;
 	int		nbColums;
 }	Map;
