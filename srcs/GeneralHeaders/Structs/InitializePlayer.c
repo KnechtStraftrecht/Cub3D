@@ -6,19 +6,19 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 18:33:45 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/21 21:52:17 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/03/06 16:44:46 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Player.h"
 
-void	SetDirection(Player *Player, float y, float x)
+void	SetDirection(Player *Player, double y, double x)
 {
 	Player->Direction->Y = y;
 	Player->Direction->X = x;
 }
 
-void	SetPlane(Player *Player, float y, float x)
+void	SetPlane(Player *Player, double y, double x)
 {
 	Player->Plane->Y = y;
 	Player->Plane->X = x;
@@ -31,11 +31,11 @@ void	SetPlayerStats(Player *Player, int y, int x, char Direction)
 	switch (Direction)
 	{
 		case 'N':
-			SetDirection(Player, -1, 0);
+			SetDirection(Player, 1, 0);
 			SetPlane(Player, 0, 0.66);
 			break ;
 		case 'S':
-			SetDirection(Player, 1, 0);
+			SetDirection(Player, -1, 0);
 			SetPlane(Player, 0, -0.66);
 			break ;
 		case 'E':

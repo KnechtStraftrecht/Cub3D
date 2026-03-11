@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 21:10:57 by hkullert          #+#    #+#             */
-/*   Updated: 2026/02/21 14:36:20 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/03/06 16:37:55 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #define WIDTH 1920
 #define HEIGHT 1080
-#define MOVESPEED 0,02
-#define ROTATIONSPEED 0,01
+#define MOVESPEED 0.02
+#define ROTATIONSPEED 0.01
 #define FOV 66
 #define ESC 0xff1b
 #define W 0x0057

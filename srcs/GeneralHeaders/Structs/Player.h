@@ -6,7 +6,7 @@
 /*   By: KnechtStrafrecht <KnechtStrafrecht@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/21 15:08:40 by KnechtStraf       #+#    #+#             */
-/*   Updated: 2026/02/21 21:47:30 by KnechtStraf      ###   ########.fr       */
+/*   Updated: 2026/03/06 16:43:31 by KnechtStraf      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 // - Vector	*Direction;
 // - Vector	*Plane;
 typedef struct s_Player {
-	float	PosX;
-	float	PosY;
+	double	PosX;
+	double	PosY;
 	bool	MvForward;
 	bool	MvBackward;
 	bool	MvLeft;
